@@ -1,14 +1,19 @@
 import { useState } from "react"
 import { Box, Button, Step, StepLabel, Stepper } from "@mui/material"
 import { SelectAnalysis } from "../components/analisis"
-
-const steps = [
-    {label: 'Seleccionar análisis', content: <SelectAnalysis/>}, 
-    {label: 'Subir archivo', content: <></>}, 
-    {label: 'Completar campos', content: <></>}]
+import { UploadFile } from "../components/uploadFile"
+import { ParamsAnalysis } from "../components/paramsAnalysis"
+// import { useFileChooser } from "../hooks/useFileChooser"
 
 export const Home = (props) => {
     const [ activeStep, setActiveStep ] = useState(0)
+    const [ mode, setMode ] = useState([])
+    const [ files, setFiles ] = useState([])
+    
+    const handleFileChooser = (e) => {
+        e.preventDefault()
+        setFiles(e.target.files)
+    }
     
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1)
@@ -21,6 +26,12 @@ export const Home = (props) => {
     const handleReset = () => {
         setActiveStep(0)
     }
+    
+    const steps = [
+        {label: 'Seleccionar análisis', content: <SelectAnalysis setMode={setMode}/>}, 
+        {label: 'Subir archivo', content: <UploadFile handleFileChooser={handleFileChooser} />}, 
+        {label: 'Completar campos', content: <ParamsAnalysis files={files} mode={mode} />}
+    ]
 
     return(
         <Box sx={{ width: '100%', marginTop: 3 }}>

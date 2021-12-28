@@ -35,18 +35,14 @@ const items = [
 	{tag: 'Predicción de casos confirmados por día', require: []}
 ];
 
-export const SelectAnalysis = (props) => {
+export const SelectAnalysis = ({ setMode }) => {
     const [ selectedIndex, setSelectedIndex ] = useState(-1)
 
-    const handleListItemClick = (event, index) => {
-        setSelectedIndex(index)
-    }
-    
     const handleSelect = (e) => {
+        e.preventDefault()
         let indexSelected = items.findIndex((value) => value.tag === e.target.innerText)
         setSelectedIndex(indexSelected)
-        
-        localStorage.setItem('mode-analysis', JSON.stringify(items[indexSelected]))
+		setMode(items[indexSelected])
     }
 	return (
 		<Box sx={{ width: '100%', height: '100%', overflowY: 'scroll', bgcolor: 'Background.paper' }}>
