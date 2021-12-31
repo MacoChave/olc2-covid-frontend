@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { prediceService } from "../services/analizeService";
 
@@ -32,12 +32,18 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 
 	return (
         <Box>
+			<Typography variant="subtitle1" mt={2}>Parametrizar columnas</Typography>
             {mode.field.map((value, index) => (
-                <Box key={value.require}>
-                    {/* <TextField id={value.require} label={value.require} variant='outlined' onBlur={(e) => console.log(e.target.value) } /> */}
-                    <TextField id={value.require} label={value.require} variant='outlined' onBlur={(e) => mode.field[index].match = e.target.value } />
+				<Box key={value.require}>
+                    <TextField id={value.require} label={value.require} variant='outlined' margin="normal" size="small" onBlur={(e) => mode.field[index].match = e.target.value } />
                 </Box>
             ))}
+			<Typography variant="subtitle1" mt={2}>Definir filtros</Typography>
+			{mode.filter.map((value, index) => (
+				<Box key={value.key}>
+					<TextField id={value.key} label={value.key} variant='outlined' margin="normal" size="small" onBlur={(e) => mode.filter[index].value = e.target.value } />
+				</Box>
+			))}
             <Box>
                 <Button variant="contained" onClick={handleSubmit}>Analizar</Button>
             </Box>
