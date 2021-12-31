@@ -30,7 +30,7 @@ export const UploadFile = ({ setSep, handleFileChooser }) => {
                 ))}
             </TextField>
 			<label htmlFor='btn-upload'>
-				<input accept='.json, .csv, xls, xlsx' id='btn-upload' type='file' onChange={handleFileChooser} hidden />
+				<input accept='.json, .csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' id='btn-upload' type='file' onChange={handleFileChooser} hidden />
 				<Button variant='contained' component='span'>
 					Seleccionar archivo
 				</Button>
