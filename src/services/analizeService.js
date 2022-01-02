@@ -4,14 +4,17 @@ const host = ' http://127.0.0.1'
 const port = ':5000'
 const baseURL = `${host}${port}`
 
-export const prediceService = (data) => {
-    axios.post(`${baseURL}/predict`, data)
+export const prediceService = async (body) => {
+    const { data } = await axios.post(`${baseURL}/predict`, body)
+    return data
 }
 
-export const TrendService = (data) => {
-    axios.post(`${baseURL}/trend`, data)
+export const TrendService = async (body) => {
+    const { data } = await axios.post(`${baseURL}/trend`, body)
+    return data
 }
 
-export const PercentageService = (data) => {
-    axios.post(`${baseURL}/percentage`, data)
+export const PercentageService = async (body) => {
+    const { data } = await axios.post(`${baseURL}/percentage`, body)
+    return data
 }

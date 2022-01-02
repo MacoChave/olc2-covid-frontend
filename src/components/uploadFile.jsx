@@ -1,4 +1,4 @@
-import { Box, Button, MenuItem, TextField, Typography } from '@mui/material';
+import { Box, Button, MenuItem, TextField } from '@mui/material';
 import { useState } from 'react';
 
 const separators = [
