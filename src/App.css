@@ -26,3 +26,28 @@
 	text-decoration: none;
 	color: white;
 }
+
+.loading__container {
+	position: absolute;
+	width: 100vw;
+	height: 90vh;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loading__container img {
+	animation: jumping 1s ease-in infinite;
+}
+
+@keyframes jumping {
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+}

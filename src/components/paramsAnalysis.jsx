@@ -2,12 +2,13 @@ import { Button, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useModal } from '../hooks/useModal';
-import { prediceService } from '../services/analizeService';
+import { prediceService, TrendService } from '../services/analizeService';
 import { Modal } from './modal';
 
 export const ParamsAnalysis = ({ base64, mode, sep }) => {
 	const { isOpenModal, handleOpenModal, handleCloseModal } = useModal(false);
 	const [messageModal, setMessageModal] = useState(<></>);
+	const [loading, setLoading] = useState(false);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -22,13 +23,32 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 			sep: sep,
 		};
 
+		setLoading(true);
 		switch (mode.tag) {
 			case 'Tendencia':
 				console.log('Go to tendencia');
+				TrendService(mode).then((res) => {
+					console.log(res);
+					setLoading(false);
+					setMessageModal(
+						<>
+							<img src={res.Grafica} alt='Gráfica de tendencia' />
+							<p>
+								<span>Ecuación: </span>
+								{res.Ecuacion}
+							</p>
+							<p>
+								<span>Tendencia: </span>
+								{res.Coeficiente > 0 ? 'Alcista' : 'Bajista'}
+							</p>
+						</>
+					);
+					handleOpenModal();
+				});
 				break;
 			case 'Predicción':
 				prediceService(mode).then((res) => {
-					console.log(res);
+					setLoading(false);
 					setMessageModal(
 						<>
 							<img src={res.Grafica} alt='Gráfica de ecuación' />
@@ -78,6 +98,7 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 				console.log('Go to Comparación');
 				break;
 			default:
+				setLoading(false);
 				break;
 		}
 	};
@@ -148,6 +169,18 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 					title='Resultados del análisis'>
 					{messageModal}
 				</Modal>
+			)}
+			{loading && (
+				<div className='loading__container'>
+					<img
+						src='https://picsum.photos/50/50/?blur'
+						alt='virus icon'
+					/>
+					{/* <img
+						src='https://firebasestorage.googleapis.com/v0/b/maco-apps.appspot.com/o/virus.png?alt=media&token=425369b4-9748-440a-bd36-ab12a1b2eba6'
+						alt='virus icon'
+					/> */}
+				</div>
 			)}
 		</Box>
 	);
