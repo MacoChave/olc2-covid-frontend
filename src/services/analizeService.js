@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const host = ' http://127.0.0.1'
+const host = 'http://127.0.0.1'
 const port = ':5000'
 const baseURL = `${host}${port}`
 

@@ -37,6 +37,7 @@ export const items = [
         tag: 'Predicción',
         title: 'Predicción de mortalidad por COVID en un Departamento',
         field: [
+            { require: 'Pais', match: '' },
             { require: 'Departamento', match: '' },
             { require: 'Muertes', match: '' },
             { require: 'Fecha', match: '' }

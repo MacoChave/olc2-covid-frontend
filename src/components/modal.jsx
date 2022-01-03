@@ -20,7 +20,10 @@ export const Modal = ({ isOpen, closeModal, title, children }) => {
 								{title}{' '}
 							</Typography>
 						</div>
-						<IconButton color='primary' aria-label='Close modal'>
+						<IconButton
+							color='primary'
+							aria-label='Close modal'
+							onClick={closeModal}>
 							<Close />
 						</IconButton>
 					</div>
@@ -29,7 +32,7 @@ export const Modal = ({ isOpen, closeModal, title, children }) => {
 						<Button
 							id='accept-modal'
 							variant='contained'
-							onClick={handleModalDialog}>
+							onClick={closeModal}>
 							Aceptar
 						</Button>
 					</div>
