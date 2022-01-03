@@ -9,12 +9,17 @@ export const prediceService = async (body) => {
     return data
 }
 
-export const TrendService = async (body) => {
+export const trendService = async (body) => {
     const { data } = await axios.post(`${baseURL}/trend`, body)
     return data
 }
 
-export const PercentageService = async (body) => {
+export const percentageService = async (body) => {
     const { data } = await axios.post(`${baseURL}/percentage`, body)
+    return data
+}
+
+export const rateService = async (body) => {
+    const { data } = await axios.post(`${baseURL}/rate`, body)
     return data
 }

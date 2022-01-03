@@ -5,11 +5,9 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Confirmados', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Predicción',
@@ -17,21 +15,21 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Confirmados', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
         filter: [
             { key: 'Pais', value: '' },
-            { key: 'Dias', value: '' }
-        ]
+            { key: 'Dias', value: '' },
+        ],
     },
     {
         tag: 'Índice',
         title: 'Indice de progresión de la pandemia',
         field: [
             { require: 'Confirmados', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: []
+        filter: [],
     },
     {
         tag: 'Predicción',
@@ -40,13 +38,13 @@ export const items = [
             { require: 'Pais', match: '' },
             { require: 'Departamento', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
         filter: [
             { key: 'Pais', value: '' },
             { key: 'Departamento', value: '' },
-            { key: 'Dias', value: '' }
-        ]
+            { key: 'Dias', value: '' },
+        ],
     },
     {
         tag: 'Predicción',
@@ -54,12 +52,12 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
         filter: [
             { key: 'Pais', value: '' },
-            { key: 'Dias', value: '' }
-        ]
+            { key: 'Dias', value: '' },
+        ],
     },
     {
         tag: 'Análisis',
@@ -67,11 +65,9 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Tendencia',
@@ -79,11 +75,9 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Confirmados', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Predicción',
@@ -91,12 +85,12 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Confirmados', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
         filter: [
             { key: 'Pais', value: '' },
-            { key: 'Año', value: '' }
-        ]
+            { key: 'Año', value: '' },
+        ],
     },
     {
         tag: 'Tendencia',
@@ -104,11 +98,9 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Vacunación', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Análisis',
@@ -116,12 +108,12 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Vacunación', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
         filter: [
             { key: 'Pais 1', value: '' },
-            { key: 'Pais 2', value: '' }
-        ]
+            { key: 'Pais 2', value: '' },
+        ],
     },
     {
         tag: 'Porcentaje',
@@ -130,11 +122,9 @@ export const items = [
             { require: 'Pais', match: '' },
             { require: 'Género', match: '' },
             { require: 'Confirmados', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Análisis',
@@ -142,14 +132,14 @@ export const items = [
         field: [
             { require: 'Comparar_1', match: '' },
             { require: 'Comparar_2', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
         filter: [
             { key: 'Pais 1', value: '' },
             { key: 'Pais 2', value: '' },
             { key: 'Continente 1', value: '' },
             { key: 'Continente 2', value: '' },
-        ]
+        ],
     },
     {
         tag: 'Muertes promedio',
@@ -159,11 +149,9 @@ export const items = [
             { require: 'Edad', match: '' },
             { require: 'Confirmados', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Muertes según región',
@@ -172,11 +160,9 @@ export const items = [
             { require: 'Pais', match: '' },
             { require: 'Muertes', match: '' },
             { require: 'Region', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Tendencia',
@@ -185,12 +171,12 @@ export const items = [
             { require: 'Pais', match: '' },
             { require: 'Confirmados', match: '' },
             { require: 'Departamento', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
         filter: [
             { key: 'Pais', value: '' },
-            { key: 'Departamento', value: '' }
-        ]
+            { key: 'Departamento', value: '' },
+        ],
     },
     {
         tag: 'Porcentaje',
@@ -201,14 +187,13 @@ export const items = [
             { require: 'Pais', match: '' },
             { require: 'Total', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
         filter: [
             { key: 'Pais', value: '' },
             { key: 'Región', value: '' },
             { key: 'Continente', value: '' },
-            { key: 'Dias', value: '' }
-        ]
+        ],
     },
     {
         tag: 'Tasa de comportamiento',
@@ -217,11 +202,9 @@ export const items = [
             { require: 'Continente', match: '' },
             { require: 'Confirmados', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Continente', value: '' }
-        ]
+        filter: [{ key: 'Continente', value: '' }],
     },
     {
         tag: 'Comportamiento',
@@ -230,11 +213,9 @@ export const items = [
             { require: 'Pais', match: '' },
             { require: 'Municipio', match: '' },
             { require: 'Confirmados', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Predicción',
@@ -242,21 +223,20 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Tasa de crecimiento',
-        title: 'Tasa de crecimiento de casos de COVID-19 en relación con nuevos casos diarios y tasa de muerte por  COVID-19',
+        title: 'Tasa de crecimiento de casos en relación con nuevos casos diarios y tasa de muerte',
         field: [
             { require: 'Confirmados', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Recuperados', match: '' },
+            { require: 'Fecha', match: '' },
         ],
-        filter: []
+        filter: [],
     },
     {
         tag: 'Predicción',
@@ -264,23 +244,20 @@ export const items = [
         field: [
             { require: 'Confirmados', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Dias', match: '' }
-        ]
+        filter: [{ key: 'Dias', match: '' }],
     },
     {
         tag: 'Tasa de mortalidad',
         title: 'Tasa de mortalidad por coronavirus (COVID-19) en un país',
         field: [
             { require: 'Pais', match: '' },
+            { require: 'Total', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Factor de muerte',
@@ -288,11 +265,9 @@ export const items = [
         field: [
             { require: 'Pais', match: '' },
             { require: 'Muertes', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Comparación',
@@ -301,21 +276,17 @@ export const items = [
             { require: 'Pais', match: '' },
             { require: 'Confirmados', match: '' },
             { require: 'Pruebas', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Pais', value: '' }
-        ]
+        filter: [{ key: 'Pais', value: '' }],
     },
     {
         tag: 'Predicción',
         title: 'Predicción de casos confirmados por día',
         field: [
             { require: 'Confirmados', match: '' },
-            { require: 'Fecha', match: '' }
+            { require: 'Fecha', match: '' },
         ],
-        filter: [
-            { key: 'Dias', value: '' }
-        ]
-    }
+        filter: [{ key: 'Dias', value: '' }],
+    },
 ];

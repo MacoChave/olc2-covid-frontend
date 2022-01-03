@@ -1,8 +1,14 @@
-import { Button, TextField, Typography } from '@mui/material';
+import { Save } from '@mui/icons-material';
+import { Button, IconButton, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useModal } from '../hooks/useModal';
-import { prediceService, TrendService } from '../services/analizeService';
+import {
+	percentageService,
+	prediceService,
+	rateService,
+	trendService,
+} from '../services/analizeService';
 import { Modal } from './modal';
 
 export const ParamsAnalysis = ({ base64, mode, sep }) => {
@@ -27,7 +33,7 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 		switch (mode.tag) {
 			case 'Tendencia':
 				console.log('Go to tendencia');
-				TrendService(mode).then((res) => {
+				trendService(mode).then((res) => {
 					console.log(res);
 					setLoading(false);
 					setMessageModal(
@@ -48,6 +54,7 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 				break;
 			case 'Predicción':
 				prediceService(mode).then((res) => {
+					console.log(res);
 					setLoading(false);
 					setMessageModal(
 						<>
@@ -72,6 +79,24 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 				break;
 			case 'Porcentaje':
 				console.log('Go to Porcentaje');
+				percentageService(mode).then((res) => {
+					console.log(res);
+					setLoading(false);
+					setMessageModal(
+						<>
+							<img src={res.Grafica} alt='Gráfica de ecuación' />
+							<p>
+								<span>Ecuación de la tendencia: </span>
+								{res.Ecuacion}
+							</p>
+							<p>
+								<span>Porcentaje del total: </span>
+								{`${Number(res.Porcentaje).toFixed(2)} %`}
+							</p>
+						</>
+					);
+				});
+				handleOpenModal();
 				break;
 			case 'Muertes promedio':
 				console.log('Go to Muertes promedio');
@@ -81,15 +106,73 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 				break;
 			case 'Tasa de comportamiento':
 				console.log('Go to Tasa de comportamiento');
+				rateService(mode).then((res) => {
+					console.log(res);
+					setLoading(false);
+					setMessageModal(
+						<>
+							<img src={res.Grafica} alt='Gráfica de ecuación' />
+							<p>
+								<span>
+									Ecuación de la tasa de comportamiento:{' '}
+								</span>
+								{res.Ecuacion}
+							</p>
+							<p>
+								<span>Tasa total: </span>
+								{Number(res.Porcentaje).toFixed(2)}
+							</p>
+						</>
+					);
+				});
+				handleOpenModal();
 				break;
 			case 'Comportamiento':
 				console.log('Go to Comportamiento');
 				break;
 			case 'Tasa de crecimiento':
 				console.log('Go to Tasa de crecimiento');
+				rateService(mode).then((res) => {
+					console.log(res);
+					setLoading(false);
+					setMessageModal(
+						<>
+							<img src={res.Grafica} alt='Gráfica de ecuación' />
+							<p>
+								<span>
+									Ecuación de la tasa de crecimiento:{' '}
+								</span>
+								{res.Ecuacion}
+							</p>
+							<p>
+								<span>Tasa total: </span>
+								{Number(res.Tasa).toFixed(0)}
+							</p>
+						</>
+					);
+				});
+				handleOpenModal();
 				break;
 			case 'Tasa de mortalidad':
 				console.log('Go to Tasa de mortalidad');
+				rateService(mode).then((res) => {
+					console.log(res);
+					setLoading(false);
+					setMessageModal(
+						<>
+							<img src={res.Grafica} alt='Gráfica de ecuación' />
+							<p>
+								<span>Ecuación de la tasa de mortalidad: </span>
+								{res.Ecuacion}
+							</p>
+							<p>
+								<span>Tasa de mortalidad total: </span>
+								{Number(res.Tasa).toFixed(0)}
+							</p>
+						</>
+					);
+				});
+				handleOpenModal();
 				break;
 			case 'Factor de muerte':
 				console.log('Go to Factor de muerte');
@@ -101,6 +184,10 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 				setLoading(false);
 				break;
 		}
+	};
+
+	const handleGenReport = (e) => {
+		e.preventDefault();
 	};
 
 	/**
@@ -161,6 +248,12 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 				<Button variant='contained' onClick={handleSubmit}>
 					Analizar
 				</Button>
+				<IconButton
+					color='secondary'
+					aria-label='Download report'
+					onClick={handleGenReport}>
+					<Save />
+				</IconButton>
 			</Box>
 			{isOpenModal && (
 				<Modal
