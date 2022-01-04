@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/olc2-covid-frontend/static/css/main.2ff66798.css",
+    "main.js": "/olc2-covid-frontend/static/js/main.e69ab155.js",
+    "static/js/787.774729bc.chunk.js": "/olc2-covid-frontend/static/js/787.774729bc.chunk.js",
+    "index.html": "/olc2-covid-frontend/index.html",
+    "main.2ff66798.css.map": "/olc2-covid-frontend/static/css/main.2ff66798.css.map",
+    "main.e69ab155.js.map": "/olc2-covid-frontend/static/js/main.e69ab155.js.map",
+    "787.774729bc.chunk.js.map": "/olc2-covid-frontend/static/js/787.774729bc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2ff66798.css",
+    "static/js/main.e69ab155.js"
+  ]
+}
