@@ -11,7 +11,7 @@ import {
 } from '../services/analizeService';
 import { Modal } from './modal';
 
-export const ParamsAnalysis = ({ base64, mode, sep }) => {
+export const ParamsAnalysis = ({ ext, mode, sep }) => {
 	const { isOpenModal, handleOpenModal, handleCloseModal } = useModal(false);
 	const [messageModal, setMessageModal] = useState(<></>);
 	const [loading, setLoading] = useState(false);
@@ -19,13 +19,9 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		base64 = base64.replace('data:', '');
-		let dataFile = base64.split(';base64,');
-		let applicationType = dataFile[0].replace('application/', '');
 		mode = {
 			...mode,
-			file: dataFile[1],
-			ext: getExtension(applicationType),
+			ext: ext,
 			sep: sep,
 		};
 
@@ -120,7 +116,7 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 							</p>
 							<p>
 								<span>Tasa total: </span>
-								{Number(res.Porcentaje).toFixed(2)}
+								{`${res.Porcentaje} Casos activos / Muertes`}
 							</p>
 						</>
 					);
@@ -139,14 +135,12 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 						<>
 							<img src={res.Grafica} alt='Gráfica de ecuación' />
 							<p>
-								<span>
-									Ecuación de la tasa de crecimiento:{' '}
-								</span>
+								<span>Ecuación de la tasa de crecimiento:</span>
 								{res.Ecuacion}
 							</p>
 							<p>
 								<span>Tasa total: </span>
-								{Number(res.Tasa).toFixed(0)}
+								{`${res.Tasa} Casos activos / Muertes`}
 							</p>
 						</>
 					);
@@ -167,7 +161,7 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 							</p>
 							<p>
 								<span>Tasa de mortalidad total: </span>
-								{Number(res.Tasa).toFixed(0)}
+								{`${res.Tasa} Muertes / Total`}
 							</p>
 						</>
 					);
@@ -188,24 +182,6 @@ export const ParamsAnalysis = ({ base64, mode, sep }) => {
 
 	const handleGenReport = (e) => {
 		e.preventDefault();
-	};
-
-	/**
-	 * @description Get extension file from application type
-	 * @param {string} applicationType
-	 * @returns {string}
-	 */
-	const getExtension = (applicationType) => {
-		switch (applicationType) {
-			case 'vnd.ms-excel':
-				return 'csv';
-			case 'json':
-				return 'json';
-			case 'vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-				return 'xlsx';
-			default:
-				return 'xls';
-		}
 	};
 
 	return (

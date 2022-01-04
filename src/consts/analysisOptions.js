@@ -130,15 +130,15 @@ export const items = [
         tag: 'Análisis',
         title: 'Ánalisis Comparativo entres 2 o más paises o continentes',
         field: [
-            { require: 'Comparar_1', match: '' },
-            { require: 'Comparar_2', match: '' },
+            { require: 'Pais', match: '' },
+            { require: 'Continente', match: '' },
             { require: 'Fecha', match: '' },
         ],
         filter: [
             { key: 'Pais 1', value: '' },
             { key: 'Pais 2', value: '' },
             { key: 'Continente 1', value: '' },
-            { key: 'Continente 2', value: '' },
+            { key: 'Continente 2', value: '' }
         ],
     },
     {
