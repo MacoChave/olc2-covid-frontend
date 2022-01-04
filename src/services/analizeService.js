@@ -44,3 +44,8 @@ export const rateService = async (body) => {
     const { data } = await axios.post(`${baseURL}/rate`, body)
     return data
 }
+
+export const analysisService = async (body) => {
+    const { data } = await axios.post(`${baseURL}/analysis`, body)
+    return data
+}

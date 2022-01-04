@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useModal } from '../hooks/useModal';
 import {
+	analysisService,
 	percentageService,
 	prediceService,
 	rateService,
@@ -72,6 +73,29 @@ export const ParamsAnalysis = ({ ext, mode, sep }) => {
 				break;
 			case 'Análisis':
 				console.log('Go to Análisis');
+				analysisService(mode).then((res) => {
+					let graph = res.Grafica;
+					let array = res.Array;
+					let arrRes = array.map((val) => (
+						<Box>
+							<p>
+								<span>Ecuación: </span>
+								{val.ecuacion}
+							</p>
+							<p>
+								<span>Pais: </span> {val.pais}
+							</p>
+						</Box>
+					));
+					setLoading(false);
+					setMessageModal(
+						<>
+							<img src={graph} alt='Gráfica de ecuación' />
+							<Box>{arrRes}</Box>
+						</>
+					);
+					handleOpenModal();
+				});
 				break;
 			case 'Porcentaje':
 				console.log('Go to Porcentaje');
