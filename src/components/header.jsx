@@ -5,15 +5,18 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
 export const Header = (props) => {
-    return(
-        <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-        <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link className='link' to='/'>Análisis de Covid-19</Link>
-            </Typography>
-        </Toolbar>
-        </AppBar>
-        </Box>
-    )
-}
+	return (
+		<Box sx={{ flexGrow: 1 }}>
+			<AppBar position='static'>
+				<Toolbar>
+					<Typography
+						variant='h6'
+						component='div'
+						sx={{ flexGrow: 1 }}>
+						Análisis de Covid-19
+					</Typography>
+				</Toolbar>
+			</AppBar>
+		</Box>
+	);
+};

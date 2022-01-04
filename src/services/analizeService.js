@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const host = 'http://127.0.0.1'
-const port = ':5000'
+const host = 'http://http://3.134.194.50/' //'http://127.0.0.1'
+const port = '' //':5000'
 const baseURL = `${host}${port}`
 
 export const prediceService = async (body) => {
