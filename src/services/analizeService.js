@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const host = 'http://127.0.0.1' // 'http://3.134.194.50' //'http://127.0.0.1'
-const port = ':5000'
+const host = 'http://3.134.194.50' //'http://127.0.0.1'
+const port = '' // ':5000'
 const baseURL = `${host}${port}`
 
 /**
@@ -23,6 +23,11 @@ export const uploadDataFile = async (file, ext) => {
             params: { ext }
         }
     )
+}
+
+export const reportService = async () => {
+    const { data } = await axios.get(`${baseURL}/reporte`)
+    return data
 }
 
 export const prediceService = async (body) => {

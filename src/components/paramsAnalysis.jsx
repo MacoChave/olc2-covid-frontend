@@ -1,4 +1,4 @@
-import { Save } from '@mui/icons-material';
+import { ContentPasteOffSharp, Save } from '@mui/icons-material';
 import { Button, IconButton, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
@@ -8,6 +8,7 @@ import {
 	percentageService,
 	prediceService,
 	rateService,
+	reportService,
 	trendService,
 } from '../services/analizeService';
 import { Modal } from './modal';
@@ -206,6 +207,11 @@ export const ParamsAnalysis = ({ ext, mode, sep }) => {
 
 	const handleGenReport = (e) => {
 		e.preventDefault();
+		console.log('Get report');
+		reportService().then((res) => {
+			if (res.isSuccess) window.open(res.link, '_blank');
+			else console.error('Hubo un problema');
+		});
 	};
 
 	return (
@@ -265,14 +271,14 @@ export const ParamsAnalysis = ({ ext, mode, sep }) => {
 			)}
 			{loading && (
 				<div className='loading__container'>
-					<img
+					{/* <img
 						src='https://picsum.photos/50/50/?blur'
 						alt='virus icon'
-					/>
-					{/* <img
+					/> */}
+					<img
 						src='https://firebasestorage.googleapis.com/v0/b/maco-apps.appspot.com/o/virus.png?alt=media&token=425369b4-9748-440a-bd36-ab12a1b2eba6'
 						alt='virus icon'
-					/> */}
+					/>
 				</div>
 			)}
 		</Box>
